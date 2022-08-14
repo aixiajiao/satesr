@@ -134,20 +134,4 @@ class AerialImageRetrieval(object):
         for i, image in enumerate(imagelist):
             result.paste(image, (i * TILESIZE, 0))
         return True, result
-
-
-def download_aerial_imgs(lat: float=None,
-lon: float=None,
-radius: float=None,
-maxlevel: int= 23,
-maxsize: bool = True,
-road_label: bool = False,
-path:str='any'):
-    imgretrieval = AerialImageRetrieval(lat,lon,radius,maxlevel,maxsize,road_label,path)
-    if imgretrieval.max_resolution_imagery_retrieval():
-        pass
-    else:
-        print(
-            "Please check the inputs: (lat, lon, radius, maxlevel=23)"
-        )
     

@@ -1,6 +1,7 @@
 import sys
+from sate_api.bing_aerial import AerialImageRetrieval
 from realesrgan.super_resolution import REenhance as RE
-from sate_api.bing_aerial import download_aerial_imgs as DAI
+
 
 
 def satesr(
@@ -8,7 +9,7 @@ def satesr(
     lon: float = 181,
     radius: float = None,
     maxlevel: int = 20,
-    path: str=None,
+    path: str='demo/aerial_imgs',
     label: bool=False,
     enhance: bool=False,
     mode: int=1,
@@ -19,7 +20,7 @@ def satesr(
     
     if lat < 85.05112878 and lat > -85.05112878 and lon < 180 and lon > -180:
         try: 
-            DAI(lat=lat,lon=lon,radius=radius,maxlevel=maxlevel,maxsize=True,road_label=label,path=input)
+            AerialImageRetrieval(lat=lat,lon=lon,radius=radius,maxlevel=maxlevel,maxsize=True,road_label=label,path=input).max_resolution_imagery_retrieval()
         except:
             raise ValueError('Check input values')
     else:
@@ -30,10 +31,6 @@ def satesr(
         except:
             raise
 
-    
-    
-
-        
 
 
 

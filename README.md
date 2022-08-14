@@ -16,7 +16,8 @@ The aboved functions have been tested on Linux/Windows/MacOS.
 GPU acceleration is only avliable for CUDA enabled devices.
 
 To do list:
-1. Use generic models(e.g. YOlO, Unet) to test the SR performance.
+1. Use generic models(e.g. YOlO, Unet) to test the SR performance(in progress)..
+2. move the pytorch model to Tensorflow model for better GPU compability(in progress).
 2. Further refining the model, the current model is trained using a single RTXA4000 with ~50 high-res photos with minimal train pipeline.
 3. add other satellite image sources.
 4. add other super-resolution models.
