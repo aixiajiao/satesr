@@ -15,6 +15,7 @@ def satesr(
     mode: int=1,
     scale: float = 4,
     tile: int = 0):
+    
     input=path
     output = path + "_enhanced"
     
@@ -22,7 +23,7 @@ def satesr(
         try: 
             AerialImageRetrieval(lat=lat,lon=lon,radius=radius,maxlevel=maxlevel,maxsize=True,road_label=label,path=input).max_resolution_imagery_retrieval()
         except:
-            raise ValueError('Check input values')
+            raise 
     else:
         print('No valid coordinates, SR only')
     if enhance == True:

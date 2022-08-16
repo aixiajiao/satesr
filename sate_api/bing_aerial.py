@@ -3,13 +3,10 @@ Scripts to download bing aerial image
 Credit to Linlin Chen(https://github.com/llgeek/Satellite-Aerial-Image-Retrieval) for the base code
 """
 
-
-
-import sys, os
+import os
 from urllib import request
 from PIL import Image
 import time
-from datetime import timedelta
 from tqdm import tqdm
 
 from sate_api.TileSystem import tile_system

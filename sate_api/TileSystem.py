@@ -1,7 +1,11 @@
-#TileSystem
-#original C code(June08-2022version): https://docs.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system?redirectedfrom=MSDN
-#https://github.com/robmarkcole/Satellite-Aerial-Image-Retrieval-with-Bing
-#this code was reproduced for learning
+'''
+TileSystem
+
+original C code(June08-2022version): https://docs.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system?redirectedfrom=MSDN
+this code was reproduced for learning
+
+'''
+
 import os
 import math
 from re import findall
@@ -38,7 +42,7 @@ class tile_system(object):
     def ground_resolution(latitude, levelOfDetail):
         latitude = tile_system.clips(latitude, tile_system.MinLatitude, tile_system.MaxLatitude)
         return (
-            cos(latitude*math.pi/180)*2*math.pi*tile_system.EarthRadius/tile_system.map_size(levelOfDetail)
+            math.cos(latitude*math.pi/180)*2*math.pi*tile_system.EarthRadius/tile_system.map_size(levelOfDetail)
         )
     
     @staticmethod
