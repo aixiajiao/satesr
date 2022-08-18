@@ -105,12 +105,11 @@ class AerialImageRetrieval(object):
                 )
             )
             print(
-                "Find the aerial image at level {}, saved as aerialimg_lv{}_{}.jpeg in folder {}".format(
-                    levl,levl,time.strftime("%m%d-%H%M"),self.tgtfolder
+                "Find the aerial image at level {}, saved as aerialimg{}-{}_lv{}_{}.jpeg in folder {}".format(
+                    levl,self.lat,self.lon,levl,time.strftime("%m%d-%H%M"),self.tgtfolder
                 )
             )
-            
-            filename = os.path.join(self.tgtfolder, "aerialimg_lv{}_{}.jpeg".format(levl,time.strftime("%m%d-%H%M")))
+            filename = os.path.join(self.tgtfolder, "aerialimg{}-{}_lv{}_{}.jpeg".format(self.lat,self.lon,levl,time.strftime("%m%d-%H%M")))
             retrieve_image.save(filename)
             return True
         return False
