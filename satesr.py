@@ -28,7 +28,7 @@ def satesr(
         print('No valid coordinates, SR only')
     if enhance == True:
         try:
-            RE(input,output,mode,scale,'enhanved',tile,10,0,'auto')
+            RE(input,output,mode,scale,'enhanced',tile,10,0,'auto')
         except:
             raise
 
