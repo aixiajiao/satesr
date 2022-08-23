@@ -26,13 +26,6 @@ def REenhance(
         model_name = 'satesr_net_g'
     elif model == 0:
         model_name = 'RealESRGAN_x4plus'
-        from gfpgan import GFPGANer
-        face_enhancer = GFPGANer(
-            model_path='https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth',
-            upscale=out_scale,
-            arch='clean',
-            channel_multiplier=2,
-            bg_upsampler=upsampler)
     else:
         raise Exception('invalid model selection, try 1 (default) for satesr model or 0 for realesrgan model.')
 
@@ -73,10 +66,7 @@ def REenhance(
             img_mode = None
 
         try:
-            if model==0:
-                _, _, sroutput = face_enhancer.enhance(img, has_aligned=False, only_center_face=False, paste_back=True)
-            else:
-                sroutput, _ = upsampler.enhance(img, outscale=out_scale)
+            sroutput, _ = upsampler.enhance(img, outscale=out_scale)
         except RuntimeError as error:
             print('Error', error)
             print('If you encounter CUDA out of memory, try to set tile with a smaller number.')
